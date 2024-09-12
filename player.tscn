@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://df070s4xww1fk"]
+[gd_scene load_steps=6 format=3 uid="uid://df070s4xww1fk"]
 
 [ext_resource type="Texture2D" uid="uid://o7cfs378qpd4" path="res://Assets/tanks_tankDesert1.png" id="1_tckxp"]
 [ext_resource type="Texture2D" uid="uid://dboe0fx4q4if" path="res://Assets/OpenTank.png" id="2_5euuq"]
+[ext_resource type="Texture2D" uid="uid://b864fcuf4t13l" path="res://Assets/OpenTank2.png" id="3_g7ld5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jyi0a"]
 animations = [{
@@ -20,6 +21,14 @@ animations = [{
 "loop": true,
 "name": &"one_hit",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_g7ld5")
+}],
+"loop": true,
+"name": &"two_hit",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aq6nq"]
@@ -29,9 +38,7 @@ size = Vector2(81, 59)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jyi0a")
-animation = &"one_hit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 3.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_aq6nq")
