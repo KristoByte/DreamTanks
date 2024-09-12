@@ -8,16 +8,16 @@ anchors_preset = -1
 anchor_left = 0.047
 anchor_top = -16.049
 anchor_right = 9.235
-offset_left = -0.143997
-offset_top = 33.7529
-offset_right = -584.721
-offset_bottom = -366.0
+offset_left = 7982.86
+offset_top = -11053.2
+offset_right = 7398.28
+offset_bottom = -11453.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.05852, 1.04115)
 color = Color(0.0980392, 0.788235, 1, 1)
 
 [node name="SimpleBackgroundImageFromWeb" type="Sprite2D" parent="."]
-position = Vector2(6523.26, 4637.18)
-scale = Vector2(26.4284, 35.468)
+position = Vector2(-7046.63, 20918.2)
+scale = Vector2(1.73852, 1.65018)
 texture = ExtResource("1_u74um")
