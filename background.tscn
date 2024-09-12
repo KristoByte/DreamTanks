@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://r4qxr6608nfg"]
 
-[ext_resource type="Texture2D" uid="uid://bjt6eno45t1od" path="res://kenney_background-elements/Simple background image from web.jpg" id="1_u74um"]
+[ext_resource type="Texture2D" uid="uid://b5u1to5s0elya" path="res://kenney_background-elements/Simple background image from web.jpg" id="1_u74um"]
 
 [node name="ColorRect" type="ColorRect"]
 custom_minimum_size = Vector2(10000, 10000)
