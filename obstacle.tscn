@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpyufo3t33ypx"]
+[gd_scene load_steps=9 format=3 uid="uid://bpyufo3t33ypx"]
 
+[ext_resource type="Script" path="res://obstacle.gd" id="1_2edpr"]
 [ext_resource type="Texture2D" uid="uid://cldl4px4chob3" path="res://Generic_item_assets/genericItem_color_095.png" id="1_lgi83"]
 [ext_resource type="Texture2D" uid="uid://dqtlr72oufac" path="res://Generic_item_assets/genericItem_color_031.png" id="2_v2j8a"]
 [ext_resource type="Texture2D" uid="uid://hvukjrbnmhci" path="res://Generic_item_assets/genericItem_color_132.png" id="3_dymgr"]
@@ -54,6 +55,7 @@ radius = 60.0
 height = 120.0
 
 [node name="Obstacle" type="RigidBody2D"]
+script = ExtResource("1_2edpr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mh74l")
