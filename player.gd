@@ -1,5 +1,6 @@
 extends Area2D
-signal hit
+
+@export var Bullet : PackedScene
 
 @export var speed = 10
 var screen_size
@@ -30,4 +31,26 @@ func _process(delta):
 	
 	if velocity.x != 0:
 		$AnimatedSprite2D.animation = "default"
+		if Input.is_action_pressed("aim_up"):
+			$AnimatedSprite2D.animation = "default_aim_up"
+		if Input.is_action_pressed("aim_down"):
+			$AnimatedSprite2D.animation = "default"
 		#make sure to add another if to check if player has been hit to play other animations
+	
+	if velocity.x == 0:
+		$AnimatedSprite2D.animation = "default"
+		if Input.is_action_pressed("aim_up"):
+			$AnimatedSprite2D.animation = "default_aim_up"
+		if Input.is_action_pressed("aim_down"):
+			$AnimatedSprite2D.animation = "default"
+	
+	 
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+			
+			
+func shoot():
+	var b = Bullet.instantiate()
+	add_child(b)
+	b.transform = $Muzzle.transform
+	
