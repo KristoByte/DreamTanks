@@ -120,12 +120,10 @@ func shoot():
 
 	
 #Changes sprite when hit
-func change_sprite():
-	if hit_count == 1:
-		$AnimatedSprite2D.play("one_hit")
-	# Add additional sprite changes for further hit counts if needed
 
 	# Add additional sprite changes for further hit counts if needed
+	# Add additional sprite changes for further hit counts if needed
+	
 	#need to work on obstacles next so you can test the hit animations
 	#maybe add animation for the "part" falling off?
 	#need to make fram for aim up for one and two hit (maybe get new frames for all?)
@@ -134,20 +132,7 @@ func change_sprite():
 func _on_hit(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
 	if body.is_in_group("tanks"):
 		hit_count += 1
-	change_sprite() 
 	if hit_count == 3:
 		hide()
 	hit.emit()
 	$CollisionShape2D.set_deferred("disabled", true)
-
-
-func tanks(body: Node2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_body_enter(body: Node2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
