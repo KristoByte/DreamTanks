@@ -1,13 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdlse0dac5ioh"]
+[gd_scene load_steps=5 format=3 uid="uid://cdlse0dac5ioh"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_537py"]
 [ext_resource type="PackedScene" uid="uid://r4qxr6608nfg" path="res://background.tscn" id="1_ohc66"]
 [ext_resource type="PackedScene" uid="uid://df070s4xww1fk" path="res://player.tscn" id="2_nka5h"]
 
+[sub_resource type="Curve2D" id="Curve2D_yvamw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 599, 274, 0, 0, 0, 0, 589, 271, 0, 0, 0, 0, 578, 275, 0, 0, 0, 0, 583, 284, 0, 0, 0, 0, 595, 283, 0, 0, 0, 0, 599, 274)
+}
+point_count = 6
+
 [node name="Main" type="Node"]
 script = ExtResource("1_537py")
 
 [node name="ColorRect" parent="." instance=ExtResource("1_ohc66")]
+offset_left = 7980.86
+offset_top = -11056.2
+offset_right = 7396.28
+offset_bottom = -11456.0
 
 [node name="Player" parent="." instance=ExtResource("2_nka5h")]
 position = Vector2(6, -29)
+
+[node name="ObstacleTimer" type="Timer" parent="."]
+
+[node name="ObstaclePath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_yvamw")
+
+[node name="ObstacleSpawnLocation" type="PathFollow2D" parent="ObstaclePath"]
+position = Vector2(599, 274)
+rotation = -2.85014
+
+[connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]

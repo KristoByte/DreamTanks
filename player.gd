@@ -117,21 +117,13 @@ func shoot():
 			owner.add_child(b)
 			b.transform = $Muzzle3.global_transform 
 	
-
-	
-#Changes sprite when hit
-
-	# Add additional sprite changes for further hit counts if needed
-	# Add additional sprite changes for further hit counts if needed
-	
 	#need to work on obstacles next so you can test the hit animations
 	#maybe add animation for the "part" falling off?
 	#need to make fram for aim up for one and two hit (maybe get new frames for all?)
 	
 	
-func _on_hit(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
-	if body.is_in_group("tanks"):
-		hit_count += 1
+func _on_hit():
+	hit_count += 1
 	if hit_count == 3:
 		hide()
 	hit.emit()

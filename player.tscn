@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://df070s4xww1fk"]
+[gd_scene load_steps=9 format=3 uid="uid://df070s4xww1fk"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_g8e48"]
 [ext_resource type="Texture2D" uid="uid://o7cfs378qpd4" path="res://Assets/tanks_tankDesert1.png" id="1_tckxp"]
 [ext_resource type="Texture2D" uid="uid://dboe0fx4q4if" path="res://Assets/OpenTank.png" id="2_5euuq"]
+[ext_resource type="PackedScene" uid="uid://du0dwhgxgh8qn" path="res://bullet.tscn" id="2_huq42"]
 [ext_resource type="Texture2D" uid="uid://b864fcuf4t13l" path="res://Assets/OpenTank2.png" id="3_g7ld5"]
-[ext_resource type="Texture2D" uid="uid://buq8ak2xchrfm" path="res://Assets/tank_aim_up1.png" id="3_ghg47"]
+[ext_resource type="Texture2D" uid="uid://d1x2en6x2irb" path="res://Assets/tank_aim_up1.png" id="3_ghg47"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jyi0a"]
 animations = [{
@@ -54,9 +55,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aq6nq"]
 size = Vector2(81, 59)
 
-[node name="Player" type="Area2D" groups=["tanks"]]
+[node name="Player" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_g8e48")
+Bullet = ExtResource("2_huq42")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, -26.1038)
