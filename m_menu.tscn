@@ -97,7 +97,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_5sx83")
 theme_override_styles/hover = SubResource("StyleBoxFlat_melug")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_06le0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_hq2qt")
-text = "Options"
+text = "How to Play"
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
 layout_mode = 2

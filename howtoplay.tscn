@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://d1kp17o33pdpd"]
 
-[ext_resource type="Script" path="res://options.gd" id="1_hkc5f"]
-[ext_resource type="Texture2D" uid="uid://3oc5ducgay8y" path="res://kenney_background-elements/Samples/colored_forest.png" id="2_7lm4v"]
-[ext_resource type="FontFile" uid="uid://cguj8cmxxun3m" path="res://Play Chickens.ttf" id="3_ofa2v"]
+[ext_resource type="Script" path="res://howtoplay.gd" id="1_owgjn"]
+[ext_resource type="Texture2D" uid="uid://3oc5ducgay8y" path="res://kenney_background-elements/Samples/colored_forest.png" id="2_2aaw2"]
+[ext_resource type="FontFile" uid="uid://cguj8cmxxun3m" path="res://Play Chickens.ttf" id="3_c02uv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_70nma"]
-texture = ExtResource("2_7lm4v")
+texture = ExtResource("2_2aaw2")
 modulate_color = Color(0.625597, 0.625597, 0.625597, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5sx83"]
@@ -34,14 +34,14 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 
-[node name="OptionsMenu" type="Control"]
+[node name="HowToPlay" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_hkc5f")
+script = ExtResource("1_owgjn")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -129,7 +129,7 @@ offset_right = 245.0
 offset_bottom = -163.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_ofa2v")
+theme_override_fonts/font = ExtResource("3_c02uv")
 theme_override_font_sizes/font_size = 64
 text = "How To Play"
 horizontal_alignment = 1
