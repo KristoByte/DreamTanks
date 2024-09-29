@@ -1,0 +1,164 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1kp17o33pdpd"]
+
+[ext_resource type="Script" path="res://options.gd" id="1_hkc5f"]
+[ext_resource type="Texture2D" uid="uid://3oc5ducgay8y" path="res://kenney_background-elements/Samples/colored_forest.png" id="2_7lm4v"]
+[ext_resource type="FontFile" uid="uid://cguj8cmxxun3m" path="res://Play Chickens.ttf" id="3_ofa2v"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_70nma"]
+texture = ExtResource("2_7lm4v")
+modulate_color = Color(0.625597, 0.625597, 0.625597, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5sx83"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_melug"]
+bg_color = Color(0.830335, 0.830335, 0.830335, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06le0"]
+bg_color = Color(0.67069, 0.67069, 0.67069, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hq2qt"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hkc5f")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 3.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_70nma")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 66.0
+offset_top = 193.0
+offset_right = 254.0
+offset_bottom = 349.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 9
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5sx83")
+theme_override_styles/hover = SubResource("StyleBoxFlat_melug")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_06le0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hq2qt")
+text = "Start Game"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.0
+offset_top = 196.0
+offset_right = -23.0
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 9
+
+[node name="Back 2 MM" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5sx83")
+theme_override_styles/hover = SubResource("StyleBoxFlat_melug")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_06le0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hq2qt")
+text = "Back to Main Menu"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -277.0
+offset_right = 245.0
+offset_bottom = -163.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ofa2v")
+theme_override_font_sizes/font_size = 64
+text = "How To Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -334.5
+offset_top = -171.0
+offset_right = 334.5
+offset_bottom = 199.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Objective:  Survive as long as possible! 
+
+
+Controls:  
+Move:   Arrow Keys Or WASD
+Shoot: Left Mouse 
+
+
+
+"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Back 2 MM" to="." method="_on_back_2_mm_pressed"]

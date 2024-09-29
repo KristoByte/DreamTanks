@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://r4qxr6608nfg"]
+[gd_scene load_steps=3 format=3 uid="uid://r4qxr6608nfg"]
 
-[ext_resource type="Texture2D" uid="uid://b5u1to5s0elya" path="res://kenney_background-elements/Simple background image from web.jpg" id="1_u74um"]
+[ext_resource type="Texture2D" uid="uid://dkmkybg3mp2kp" path="res://kenney_background-elements/Screenshot 2024-09-12 224157.png" id="1_qw482"]
+[ext_resource type="Texture2D" uid="uid://dim8en71fe1ih" path="res://kenney_background-elements/Dream Tank Background.jpg" id="2_ov43n"]
 
 [node name="ColorRect" type="ColorRect"]
 custom_minimum_size = Vector2(10000, 10000)
@@ -17,7 +18,12 @@ grow_vertical = 2
 scale = Vector2(1.05852, 1.04115)
 color = Color(0.0980392, 0.788235, 1, 1)
 
-[node name="SimpleBackgroundImageFromWeb" type="Sprite2D" parent="."]
-position = Vector2(-7046.63, 20918.2)
-scale = Vector2(1.73852, 1.65018)
-texture = ExtResource("1_u74um")
+[node name="Screenshot2024-09-12224157" type="Sprite2D" parent="."]
+position = Vector2(-7042.85, 21160.7)
+scale = Vector2(0.813967, 0.793215)
+texture = ExtResource("1_qw482")
+
+[node name="DreamTankBackground" type="Sprite2D" parent="."]
+position = Vector2(-7048.52, 20836.6)
+scale = Vector2(0.84803, 0.485931)
+texture = ExtResource("2_ov43n")

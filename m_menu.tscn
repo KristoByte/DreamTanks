@@ -1,0 +1,137 @@
+[gd_scene load_steps=9 format=3 uid="uid://cawrap4h7tox0"]
+
+[ext_resource type="Script" path="res://m_menu.gd" id="1_crs4p"]
+[ext_resource type="Texture2D" uid="uid://3oc5ducgay8y" path="res://kenney_background-elements/Samples/colored_forest.png" id="1_dygeb"]
+[ext_resource type="FontFile" uid="uid://cguj8cmxxun3m" path="res://Play Chickens.ttf" id="2_rjlyd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_70nma"]
+texture = ExtResource("1_dygeb")
+modulate_color = Color(0.625597, 0.625597, 0.625597, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5sx83"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_melug"]
+bg_color = Color(0.830335, 0.830335, 0.830335, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06le0"]
+bg_color = Color(0.67069, 0.67069, 0.67069, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hq2qt"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[node name="MMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_crs4p")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 3.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_70nma")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -44.0
+offset_right = 168.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 9
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5sx83")
+theme_override_styles/hover = SubResource("StyleBoxFlat_melug")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_06le0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hq2qt")
+text = "Start Game"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5sx83")
+theme_override_styles/hover = SubResource("StyleBoxFlat_melug")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_06le0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hq2qt")
+text = "Options"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5sx83")
+theme_override_styles/hover = SubResource("StyleBoxFlat_melug")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_06le0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hq2qt")
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.5
+offset_top = -214.0
+offset_right = 252.5
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_rjlyd")
+theme_override_font_sizes/font_size = 64
+text = "DreamTanks"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_howtoplay_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_quit_pressed"]
