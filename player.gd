@@ -15,10 +15,14 @@ var hit_count = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
-	add_to_group("tanks")
 	
 	#adding hide() here will hide the tank 
 
+
+func start(pos):
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

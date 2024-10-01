@@ -55,6 +55,8 @@ radius = 60.0
 height = 120.0
 
 [node name="Obstacle" type="RigidBody2D" groups=["obstacles"]]
+collision_mask = 0
+freeze = true
 script = ExtResource("1_2edpr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -63,3 +65,7 @@ animation = &"obj5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_w4nye")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
