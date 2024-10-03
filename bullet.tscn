@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://du0dwhgxgh8qn"]
+[gd_scene load_steps=5 format=3 uid="uid://du0dwhgxgh8qn"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_c6sbf"]
+[ext_resource type="PackedScene" uid="uid://ctuolfnhtsp3k" path="res://explosion.tscn" id="2_34glv"]
 [ext_resource type="Texture2D" uid="uid://dc4yti3vmscc2" path="res://Assets/tank_bulletFly3.png" id="2_srihd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_odvmd"]
@@ -9,6 +10,7 @@ height = 44.0
 
 [node name="Bullet" type="Area2D"]
 script = ExtResource("1_c6sbf")
+explosion_scene = ExtResource("2_34glv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_srihd")

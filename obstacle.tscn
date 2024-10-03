@@ -59,7 +59,7 @@ collision_mask = 0
 freeze = true
 script = ExtResource("1_2edpr")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["obstacles"]]
 sprite_frames = SubResource("SpriteFrames_mh74l")
 animation = &"obj5"
 
