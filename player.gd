@@ -5,12 +5,14 @@ signal hit
 
 
 @export var Bullet : PackedScene
-
+@onready var screen_size = get_viewport_rect().size
 @export var speed = 100
-var screen_size
 var aim_direction = 0
 var flip_direction = 0
 var hit_count = 0
+
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -95,8 +97,7 @@ func _process(delta):
 		$AnimatedSprite2D.flip_h = true
 		flip_direction = 1
 	
-			
-			
+
 func shoot():
 	if flip_direction == 0:
 		if aim_direction == 1:

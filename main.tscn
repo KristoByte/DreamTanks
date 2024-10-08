@@ -13,11 +13,11 @@ point_count = 6
 [node name="Main" type="Node"]
 script = ExtResource("1_537py")
 
-[node name="ColorRect" parent="." instance=ExtResource("1_ohc66")]
+[node name="ColorRec" parent="." instance=ExtResource("1_ohc66")]
 offset_left = 7980.86
 offset_top = -11056.2
-offset_right = 7396.28
-offset_bottom = -11456.0
+offset_right = 7980.86
+offset_bottom = -11056.2
 
 [node name="Player" parent="." instance=ExtResource("2_nka5h")]
 position = Vector2(6, -29)
