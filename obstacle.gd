@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var obj_types = $AnimatedSprite2D.sprite_frames.get_animation_names()

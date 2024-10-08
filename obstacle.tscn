@@ -61,7 +61,7 @@ script = ExtResource("1_2edpr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["obstacles"]]
 sprite_frames = SubResource("SpriteFrames_mh74l")
-animation = &"obj5"
+animation = &"obj1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_w4nye")
