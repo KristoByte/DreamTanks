@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://r4qxr6608nfg"]
 
-[ext_resource type="Texture2D" uid="uid://bqo525tmyf1ce" path="res://kenney_background-elements/Screenshot 2024-09-12 224157.png" id="1_qw482"]
-[ext_resource type="Texture2D" uid="uid://nlqbek4f1yv3" path="res://kenney_background-elements/Dream Tank Background.jpg" id="2_ov43n"]
+[ext_resource type="Texture2D" uid="uid://dkmkybg3mp2kp" path="res://kenney_background-elements/Screenshot 2024-09-12 224157.png" id="1_qw482"]
+[ext_resource type="Texture2D" uid="uid://dim8en71fe1ih" path="res://kenney_background-elements/Dream Tank Background.jpg" id="2_ov43n"]
 
 [node name="ColorRect" type="ColorRect"]
 custom_minimum_size = Vector2(10000, 10000)
