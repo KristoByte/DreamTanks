@@ -1,23 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdlse0dac5ioh"]
+[gd_scene load_steps=6 format=3 uid="uid://cdlse0dac5ioh"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_537py"]
 [ext_resource type="PackedScene" uid="uid://r4qxr6608nfg" path="res://background.tscn" id="1_ohc66"]
 [ext_resource type="PackedScene" uid="uid://df070s4xww1fk" path="res://player.tscn" id="2_nka5h"]
+[ext_resource type="PackedScene" uid="uid://bpyufo3t33ypx" path="res://obstacle.tscn" id="2_oe46d"]
 
 [sub_resource type="Curve2D" id="Curve2D_yvamw"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 599, 274, 0, 0, 0, 0, 589, 271, 0, 0, 0, 0, 578, 275, 0, 0, 0, 0, 583, 284, 0, 0, 0, 0, 595, 283, 0, 0, 0, 0, 599, 274)
+"points": PackedVector2Array(0, 0, 0, 0, 146.451, 124.586, 0, 0, 0, 0, 817.451, 157.586)
 }
-point_count = 6
+point_count = 2
 
 [node name="Main" type="Node"]
 script = ExtResource("1_537py")
+obstacle_scene = ExtResource("2_oe46d")
 
 [node name="ColorRec" parent="." instance=ExtResource("1_ohc66")]
 offset_left = 7980.86
+<<<<<<< HEAD
 offset_top = -11056.2
 offset_right = 7980.86
 offset_bottom = -11056.2
+=======
+offset_top = -11033.2
+offset_right = 7396.28
+offset_bottom = -11433.0
+>>>>>>> 33fb8a51ce5e9d07e08f7574fff895bc5a6cf063
 
 [node name="Player" parent="." instance=ExtResource("2_nka5h")]
 position = Vector2(6, -29)
@@ -25,10 +33,19 @@ position = Vector2(6, -29)
 [node name="ObstacleTimer" type="Timer" parent="."]
 
 [node name="ObstaclePath" type="Path2D" parent="."]
+position = Vector2(619.549, 55.4136)
 curve = SubResource("Curve2D_yvamw")
 
 [node name="ObstacleSpawnLocation" type="PathFollow2D" parent="ObstaclePath"]
-position = Vector2(599, 274)
-rotation = -2.85014
+position = Vector2(146.451, 124.586)
+rotation = 0.0491407
 
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(-2, -26.104)
+
+[connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

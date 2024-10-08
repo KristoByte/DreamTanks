@@ -1,8 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://cawrap4h7tox0"]
 
 [ext_resource type="Script" path="res://m_menu.gd" id="1_crs4p"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://b7buj7epvtmd5" path="res://kenney_background-elements/Samples/colored_talltrees.png" id="2_5tf8u"]
 [ext_resource type="FontFile" uid="uid://cguj8cmxxun3m" path="res://Play Chickens.ttf" id="2_rjlyd"]
+=======
+[ext_resource type="Texture2D" uid="uid://cndbgcqpp0lmo" path="res://kenney_background-elements/Samples/colored_forest.png" id="1_dygeb"]
+[ext_resource type="FontFile" uid="uid://gjrm7tevyslc" path="res://Play Chickens.ttf" id="2_rjlyd"]
+>>>>>>> 33fb8a51ce5e9d07e08f7574fff895bc5a6cf063
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_70nma"]
 texture = ExtResource("2_5tf8u")
