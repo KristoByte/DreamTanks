@@ -6,6 +6,7 @@ func _ready():
 	pass
 	#possbily use AnimationPlayer node 
 	#tutorial is online
+	$AnimationPlayer.play("blast")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

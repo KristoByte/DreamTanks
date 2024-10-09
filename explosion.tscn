@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctuolfnhtsp3k"]
+[gd_scene load_steps=10 format=3 uid="uid://ctuolfnhtsp3k"]
 
 [ext_resource type="Texture2D" uid="uid://bqn16dbgbcvq7" path="res://Assets/tank_explosion7.png" id="2_erwtb"]
 [ext_resource type="Texture2D" uid="uid://cyjh44xrr81qg" path="res://Assets/tank_explosion2.png" id="2_rnddq"]
@@ -29,6 +29,25 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5k8ky"]
 
+[sub_resource type="Animation" id="Animation_yrc8l"]
+resource_name = "blast"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iyj4r"]
+_data = {
+"blast": SubResource("Animation_yrc8l")
+}
+
 [node name="Explosion" type="Area2D"]
 script = ExtResource("5_hjtcc")
 
@@ -37,5 +56,11 @@ sprite_frames = SubResource("SpriteFrames_tsck8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_5k8ky")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iyj4r")
+}
+movie_quit_on_finish = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -17,15 +17,9 @@ obstacle_scene = ExtResource("2_oe46d")
 
 [node name="ColorRec" parent="." instance=ExtResource("1_ohc66")]
 offset_left = 7980.86
-<<<<<<< HEAD
-offset_top = -11056.2
-offset_right = 7980.86
-offset_bottom = -11056.2
-=======
 offset_top = -11033.2
 offset_right = 7396.28
 offset_bottom = -11433.0
->>>>>>> 33fb8a51ce5e9d07e08f7574fff895bc5a6cf063
 
 [node name="Player" parent="." instance=ExtResource("2_nka5h")]
 position = Vector2(6, -29)
