@@ -2,7 +2,9 @@ extends Area2D
 
 @export var explosion_scene : PackedScene
 
+var child_exit_count = 0
 var speed = 750
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

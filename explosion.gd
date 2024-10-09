@@ -16,5 +16,10 @@ func _process(delta):
 
 
 
-func _on_animated_sprite_2d_animation_finished():
-	print("explosion finished")
+
+
+func _on_animation_player_animation_finished(anim_name):
+	queue_free()
+
+
+	
