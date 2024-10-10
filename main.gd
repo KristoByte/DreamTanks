@@ -8,6 +8,7 @@ extends Node
 @export var obstacle_scene : PackedScene
 
 var objCount = 0
+
 #counts the number of objects currently spawned in the scene
 
 # Called when the node enters the scene tree for the first time.
@@ -27,8 +28,8 @@ func _on_obstacle_timer_timeout():
 	#and the count goes under 5
 	if objCount < 5:
 		var obstacle = obstacle_scene.instantiate()
-	
-	
+		#need to spawn objects not on top of each other
+		
 		var obstacle_spawn_location = $ObstaclePath/ObstacleSpawnLocation
 		obstacle_spawn_location.progress_ratio = randf()
 		obstacle.position = obstacle_spawn_location.position
@@ -50,3 +51,12 @@ func new_game():
 
 func _on_start_timer_timeout():
 	$ObstacleTimer.start()
+
+
+
+
+
+func _on_child_exiting_tree(node):
+	if node.is_in_group("obstacles"):
+		objCount -= 1
+		#add obj destroyed counter? to find a spawning stopping point
