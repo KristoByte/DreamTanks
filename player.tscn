@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://df070s4xww1fk"]
+[gd_scene load_steps=18 format=3 uid="uid://df070s4xww1fk"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_g8e48"]
 [ext_resource type="PackedScene" uid="uid://du0dwhgxgh8qn" path="res://bullet.tscn" id="2_huq42"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cjjd5hnwgvgv3" path="res://Assets/tank1NoMuzzle.png" id="4_mx707"]
 [ext_resource type="Texture2D" uid="uid://b1k4ijb6addiw" path="res://Assets/tank2NoMuzzle.png" id="5_khyry"]
 [ext_resource type="Texture2D" uid="uid://ckoeul67qfhu6" path="res://Assets/tank3NoMuzzle.png" id="6_hctnl"]
+[ext_resource type="Texture2D" uid="uid://c1y4inifadlcx" path="res://Assets/tank_top.png" id="7_630fs"]
+[ext_resource type="Texture2D" uid="uid://c7p1liyxomjve" path="res://Assets/tank_body_part.png" id="8_obqmk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jyi0a"]
 animations = [{
@@ -48,6 +50,140 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_sgen8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_630fs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d4h1b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_obqmk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_csxak"]
+resource_name = "part_1_falling"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TankTop:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.166667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TankTop:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, -3), Vector2(-1, 500)]
+}
+
+[sub_resource type="Animation" id="Animation_gy7rh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TankTop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TankTop:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TankMiddle:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TankMiddle:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -3)]
+}
+
+[sub_resource type="Animation" id="Animation_p5gma"]
+resource_name = "part_2_falling"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TankMiddle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TankMiddle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.166667, 0.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, -3), Vector2(-1, 500)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2uhkf"]
+_data = {
+"RESET": SubResource("Animation_gy7rh"),
+"part_1_falling": SubResource("Animation_csxak"),
+"part_2_falling": SubResource("Animation_p5gma")
+}
+
 [node name="Player" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_g8e48")
@@ -63,5 +199,18 @@ shape = SubResource("RectangleShape2D_aq6nq")
 
 [node name="TankBody" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_40ywx")
+
+[node name="TankTop" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -3)
+sprite_frames = SubResource("SpriteFrames_sgen8")
+
+[node name="TankMiddle" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -3)
+sprite_frames = SubResource("SpriteFrames_d4h1b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2uhkf")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,5 +1,8 @@
 extends Area2D
 
+signal objHit
+#need to connect this signal so main can hear if an object is destroyed so it will start the obj timer
+
 @export var explosion_scene : PackedScene
 
 
@@ -21,6 +24,7 @@ func _on_body_entered(body):
 	if body.is_in_group("obstacles"):
 		var explosion = explosion_scene.instantiate()
 		body.add_child(explosion)
+		objHit.emit()
 	queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

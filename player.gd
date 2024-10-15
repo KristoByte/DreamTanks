@@ -96,17 +96,19 @@ func shoot():
 		b.speed = 750
 	
 	#need to work on obstacles next so you can test the hit animations
-	#maybe add animation for the "part" falling off?
-	#need to make fram for aim up for one and two hit (maybe get new frames for all?)
+
+	
 	
 	
 func _on_hit():
 	hit_count += 1
 	if hit_count == 1:
 		$TankBody.animation = "one_hit"
+		$AnimationPlayer.play("part_1_falling")
 	if hit_count == 2:
 		$TankBody.animation = "two_hit"
+		$AnimationPlayer.play("part_2_falling")
 	if hit_count == 3:
 		hide()
-	hit.emit()
-	$CollisionShape2D.set_deferred("disabled", true)
+		hit.emit()
+		$CollisionShape2D.set_deferred("disabled", true)
