@@ -61,11 +61,12 @@ script = ExtResource("1_2edpr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["obstacles"]]
 sprite_frames = SubResource("SpriteFrames_mh74l")
-animation = &"obj5"
+animation = &"obj1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_w4nye")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

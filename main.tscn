@@ -8,9 +8,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_yvamw"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 146.451, 124.586, 0, 0, 0, 0, 817.451, 157.586)
+"points": PackedVector2Array(0, 0, 0, 0, 128.451, 117.586, 0, 0, 0, 0, 331.451, 198.586, 0, 0, 0, 0, 466.451, 75.5864, 0, 0, 0, 0, 594.451, 202.586, 0, 0, 0, 0, 707.451, 81.5864, 0, 0, 0, 0, 876.451, 184.586, 0, 0, 0, 0, 1075.45, 80.5864)
 }
-point_count = 2
+point_count = 7
 
 [node name="Main" type="Node"]
 script = ExtResource("1_537py")
@@ -32,17 +32,18 @@ position = Vector2(619.549, 55.4136)
 curve = SubResource("Curve2D_yvamw")
 
 [node name="ObstacleSpawnLocation" type="PathFollow2D" parent="ObstaclePath"]
-position = Vector2(146.451, 124.586)
-rotation = 0.0491407
+position = Vector2(128.451, 117.586)
+rotation = 0.379657
 
 [node name="StartTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(-2, -26.104)
+position = Vector2(69, 483)
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("5_1hq7d")]
 
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

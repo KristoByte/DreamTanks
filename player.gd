@@ -10,6 +10,7 @@ signal hit
 var aim_direction = 0
 var flip_direction = 0
 var hit_count = 0
+var flipped_back = false
 
 
 
@@ -29,6 +30,32 @@ func start(pos):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var velocity = Vector2.ZERO
+	var plRot = $AnimatedSprite2D.rotation
+	if flip_direction == 0:
+		if flipped_back == true:
+			plRot = plRot * -1
+			$AnimatedSprite2D.rotation = plRot
+			flipped_back = false
+		if plRot >= -1.0:
+			if Input.is_action_pressed("aim_up"):
+				$AnimatedSprite2D.rotation -= 0.05
+		if plRot <= -0.01:
+			if Input.is_action_pressed("aim_down"):
+				$AnimatedSprite2D.rotation += 0.05
+	if flip_direction == 1:
+		plRot = abs(plRot)
+		$AnimatedSprite2D.rotation = plRot
+		flipped_back = true
+		if plRot <= 1.0:
+			if Input.is_action_pressed("aim_up"):
+				$AnimatedSprite2D.rotation += 0.05
+		if plRot >= 0.01:
+			if Input.is_action_pressed("aim_down"):
+				$AnimatedSprite2D.rotation -= 0.05
+	
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+		
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 		flip_direction = 0
@@ -36,100 +63,52 @@ func _process(delta):
 		velocity.x -= 1
 		flip_direction = 1
 		
-	if Input.is_action_just_pressed("shoot"):
-		shoot()
-	
+		
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-		$AnimatedSprite2D.play()
+		$TankBody.play()
 	else:
-		$AnimatedSprite2D.stop()
-	
+		$TankBody.stop()
+		
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
 	
-	if velocity.x > 0:
-		#$AnimatedSprite2D.animation = "default"
-		flip_direction = 0
-		$AnimatedSprite2D.flip_h = false
-		if Input.is_action_just_pressed("aim_up"):
-			if hit_count == 0:
-				$AnimatedSprite2D.animation = "default_aim_up"
-			if hit_count == 1:
-				$AnimatedSprite2D.animation = "one_hit_aim_up"
-			if hit_count == 2:
-				$AnimatedSprite2D.animation = "two_hit_aim_up"
-			aim_direction = 1
-		if Input.is_action_just_pressed("aim_down"):
-			if hit_count == 0:
-				$AnimatedSprite2D.animation = "default"
-			if hit_count == 1:
-				$AnimatedSprite2D.animation = "one_hit"
-			if hit_count == 2:
-				$AnimatedSprite2D.animation = "two_hit"
-			aim_direction = 0
-		#make sure to add another if to check if player has been hit to play other animations
-	
-	if velocity.x == 0:
-		#$AnimatedSprite2D.animation = "default"
-		if Input.is_action_just_pressed("aim_up"):
-			aim_direction = 1
-			if hit_count == 0:
-				$AnimatedSprite2D.animation = "default_aim_up"
-			if hit_count == 1:
-				$AnimatedSprite2D.animation = "one_hit_aim_up"
-			if hit_count == 2:
-				$AnimatedSprite2D.animation = "two_hit_aim_up"
-		
-		if Input.is_action_just_pressed("aim_down"):
-			if hit_count == 0:
-				$AnimatedSprite2D.animation = "default"
-			if hit_count == 1:
-				$AnimatedSprite2D.animation = "one_hit"
-			if hit_count == 2:
-				$AnimatedSprite2D.animation = "two_hit"
-			aim_direction = 0
-		
-		if flip_direction == 1:
-			$AnimatedSprite2D.flip_h = true
-		if flip_direction == 0:
-			$AnimatedSprite2D.flip_h = false
-		
-	
-	 
-	if velocity.x < 0:
+	if flip_direction == 1:
+		$TankBody.flip_h = true
 		$AnimatedSprite2D.flip_h = true
-		flip_direction = 1
+		$AnimatedSprite2D.position.x = -10
+		$AnimatedSprite2D.offset.x = -20
+	if flip_direction == 0:
+		$TankBody.flip_h = false
+		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.offset.x = 20
+		$AnimatedSprite2D.position.x = 0
 	
 
 func shoot():
-	if flip_direction == 0:
-		if aim_direction == 1:
-			var b = Bullet.instantiate()
-			owner.add_child(b)
-			b.transform = $Muzzle2.global_transform
-		if aim_direction == 0:
-			var b = Bullet.instantiate()
-			owner.add_child(b)
-			b.transform = $Muzzle.global_transform 
+	var b = Bullet.instantiate()
+	add_child(b)
+	b.transform = $AnimatedSprite2D.global_transform
+	b.position = $AnimatedSprite2D.position
 	if flip_direction == 1:
-		if aim_direction == 1:
-			var b = Bullet.instantiate()
-			owner.add_child(b)
-			b.transform = $Muzzle4.global_transform
-		if aim_direction == 0:
-			var b = Bullet.instantiate()
-			owner.add_child(b)
-			b.transform = $Muzzle3.global_transform 
+		b.speed = -750
+	if flip_direction == 0:
+		b.speed = 750
 	
 	#need to work on obstacles next so you can test the hit animations
-	#maybe add animation for the "part" falling off?
-	#need to make fram for aim up for one and two hit (maybe get new frames for all?)
+
+	
 	
 	
 func _on_hit():
 	hit_count += 1
+	if hit_count == 1:
+		$TankBody.animation = "one_hit"
+		$AnimationPlayer.play("part_1_falling")
+	if hit_count == 2:
+		$TankBody.animation = "two_hit"
+		$AnimationPlayer.play("part_2_falling")
 	if hit_count == 3:
 		hide()
-	hit.emit()
-	$CollisionShape2D.set_deferred("disabled", true)
+		hit.emit()
+		$CollisionShape2D.set_deferred("disabled", true)
