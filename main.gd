@@ -8,6 +8,7 @@ extends Node
 @export var obstacle_scene : PackedScene
 
 var objCount = 0
+var objTrash = 0
 
 #counts the number of objects currently spawned in the scene
 
@@ -18,7 +19,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
-	pass
+	if objTrash == 6:
+		get_tree().change_scene_to_file("res://normal_end.tscn")
+		#switches to the game win Scene
+	#also add another if that will count how many special obj/sprites the player hits to trigger bonus ending
+	#then add code here to switch to bonus ending scene
 
 
 
@@ -41,6 +46,7 @@ func _on_obstacle_timer_timeout():
 
 func game_over():
 	$ObstacleTimer.stop()
+	get_tree().change_scene_to_file("res://m_menu.tscn")
 	
 func new_game():
 	$Player.start($StartPosition.position)
@@ -59,4 +65,5 @@ func _on_start_timer_timeout():
 func _on_child_exiting_tree(node):
 	if node.is_in_group("obstacles"):
 		objCount -= 1
+		objTrash += 1
 		#add obj destroyed counter? to find a spawning stopping point
