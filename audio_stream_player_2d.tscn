@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c877lqdt646yf"]
+
+[ext_resource type="AudioStream" uid="uid://btrvm55u0ynmm" path="res://kenney_background-elements/733259__jadis0x__simple-video-game-music-loop.wav" id="1_poo4q"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_poo4q")
+pitch_scale = 2.0
+autoplay = true

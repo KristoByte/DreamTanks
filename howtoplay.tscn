@@ -149,11 +149,11 @@ offset_bottom = 199.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Objective:  Survive as long as possible! 
+text = "Objective:  Destroy all the 
 
 
 Controls:  
-Move:   Arrow Keys Or WASD
+Move:  Arrow Keys Or WASD
 Shoot: Left Mouse 
 
 

@@ -18,12 +18,12 @@ grow_vertical = 2
 scale = Vector2(1.05852, 1.04115)
 color = Color(0.0980392, 0.788235, 1, 1)
 
-[node name="Screenshot2024-09-12224157" type="Sprite2D" parent="."]
-position = Vector2(-7035.36, 21160.7)
-scale = Vector2(0.825133, 0.793215)
-texture = ExtResource("1_qw482")
-
-[node name="DreamTankBackground" type="Sprite2D" parent="."]
-position = Vector2(-7040.73, 20836.6)
-scale = Vector2(0.860206, 0.485931)
+[node name="Sky" type="Sprite2D" parent="."]
+position = Vector2(-7045.22, 20831.3)
+scale = Vector2(0.853934, 0.496224)
 texture = ExtResource("2_ov43n")
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(-7045.69, 21145.3)
+scale = Vector2(0.815187, 0.928985)
+texture = ExtResource("1_qw482")
